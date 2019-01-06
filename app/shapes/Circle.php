@@ -1,6 +1,6 @@
 <?php
 
-class Circle
+class Circle implements ShapeInterface
 {
     public $radius;
 

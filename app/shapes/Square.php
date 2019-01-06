@@ -1,7 +1,7 @@
 <?php
 
 
-class Square
+class Square implements ShapeInterface
 {
     public $length;
 

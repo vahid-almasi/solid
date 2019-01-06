@@ -13,13 +13,10 @@ class AreaCalculator
     public function sum()
     {
         foreach ($this->shapes as $shape) {
-            if (is_a($shape, 'Square')) {
-                $area[] = pow($shape->length, 2);
-            } else if (is_a($shape, 'Circle')) {
-                $area[] = pi() * pow($shape->radius, 2);
-            }
+            $area[] = $shape->area();
         }
         return array_sum($area);
+
     }
 
     public function output()

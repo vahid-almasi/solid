@@ -12,9 +12,22 @@ class AreaCalculator
 
     public function sum()
     {
-        foreach ($this->shapes as $shape) {
-            $area[] = $shape->area();
+        try {
+            foreach ($this->shapes as $shape) {
+
+                if (is_a($shape, 'ShapeInterface')) {
+                    $area[] = $shape->area();
+                    continue;
+                }
+
+                throw new AreaCalculatorInvalidShapeException(get_class($shape));
+            }
+        } catch (AreaCalculatorInvalidShapeException $e) {
+
+            //display custom message
+            $e->errorMessage();
         }
+
         return array_sum($area);
 
     }

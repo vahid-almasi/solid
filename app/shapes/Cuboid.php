@@ -1,7 +1,8 @@
 <?php
 
 
-class Square implements ShapeInterface
+
+class Cuboid implements ShapeInterface, SolidShapeInterface
 {
     public $length;
 
@@ -14,4 +15,10 @@ class Square implements ShapeInterface
     {
         return pow($this->length, 2);
     }
+
+    public function volume()
+    {
+        return pow($this->length, 3);
+    }
+
 }

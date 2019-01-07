@@ -5,7 +5,7 @@ class SumCalculatorOutputter
 {
     protected $calculator;
 
-    public function __construct($calculator)
+    public function __construct(AreaCalculator $calculator)
     {
         $this->calculator = $calculator;
     }

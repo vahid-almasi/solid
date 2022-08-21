@@ -17,10 +17,16 @@ $solidShapes = array(
 $areas = new AreaCalculator($shapes);
 $volumes = new AreaCalculator($solidShapes);
 
-$output = new SumCalculatorOutputter($areas);
-$output2 = new SumCalculatorOutputter($volumes);
+$jsonOutput=new Json();
 
-echo $output->JSON();
-echo $output->HAML();
-echo $output2->HTML();
-echo $output2->JADE();
+$render=new SumCalculatorOutputter($jsonOutput);
+echo $render->render($areas->sum());
+echo "\n";
+
+
+$htmlOutput=new Html();
+
+$render=new SumCalculatorOutputter($htmlOutput);
+echo $render->render($volumes->sum());
+
+echo "\n";

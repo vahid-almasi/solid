@@ -14,3 +14,5 @@ require 'app/calculators/VolumeCalculator.php';
 
 
 require_once 'app/SumCalculatorOutputter.php';
+require_once 'app/outputs/Html.php';
+require_once 'app/outputs/Json.php';

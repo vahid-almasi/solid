@@ -3,50 +3,21 @@
 
 class SumCalculatorOutputter
 {
-    protected $calculator;
+    /**
+     * @var OutPutRenderInterface
+     */
+    private $output;
 
-    public function __construct(AreaCalculator $calculator)
+    /**
+     * @param OutPutRenderInterface $output
+     */
+    public function __construct(OutPutRenderInterface $output)
     {
-        $this->calculator = $calculator;
+        $this->output=$output;
     }
 
-    public function JSON()
-    {
-        $data = array(
-            'sum' => $this->calculator->sum()
-        );
-        return json_encode($data);
-
+    public function render($result){
+        return $this->output->render($result);
     }
 
-    public function HTML()
-    {
-        return implode('', array(
-            '',
-            'Sum of the areas of provided shapes: ',
-            $this->calculator->sum(),
-            ''
-        ));
-    }
-
-    public function HAML()
-    {
-        return implode('', array(
-            '.content',
-            'Sum of the areas of provided shapes: ',
-            $this->calculator->sum(),
-            ''
-        ));
-    }
-
-    public function JADE()
-    {
-
-        return implode('', array(
-            '.content',
-            'Sum of the areas of provided shapes ',
-            $this->calculator->sum(),
-            ''
-        ));
-    }
 }
